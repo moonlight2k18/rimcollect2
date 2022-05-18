@@ -1,0 +1,36 @@
+<div>
+  <div class="my-5 text-center">
+    <h3>Liste des enquetteurs </h3>
+  </div>
+
+  <div class="mx-5 mt-5" *ngIf="this.enquetteurs.length !== 0">
+
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Login</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Centre</th>
+            <th scope="col">Enqcode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of enquetteurs;">
+            <td ><b>{{e["username"]}}</b></td>
+            <td>{{e["fname"]}}</td>
+            <td>{{e["lname"]}}</td>
+            <td>{{e["centre"]}}</td>
+            <td>{{e["enqcode"]}}</td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="this.enquetteurs.length === 0" class="text-center mt-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+</div>
+</div>

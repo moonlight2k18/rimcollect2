@@ -1,0 +1,82 @@
+<div>
+    <div class="my-5 text-center">
+      <h3>Liste des enquètes </h3>
+    </div>
+  
+    <div class="mx-5 mt-5" *ngIf="this.prix.length !== 0">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-outline-success" (click)="onExportData()">
+            <span class="px-3">Exporter</span>
+        </button>
+      </div>
+
+      <div >
+        <table class="table" id="data_table">
+          <thead>
+            <tr>
+              <th scope="col">enqcod</th>
+              <th scope="col">carnum</th>
+              <th scope="col">sercod</th>
+              <th scope="col">numrel</th>
+
+              <th scope="col">sertyp</th>
+              <th scope="col">produit</th>
+              <th scope="col">produitLabel</th>
+              <th scope="col">annee</th>
+              <th scope="col">codpv</th>
+              <th scope="col">nompv</th>
+
+              <th scope="col">enqcod</th>
+              <th scope="col">sem</th>
+              <th scope="col">mois</th>
+              <th scope="col">staprx</th>
+              <th scope="col">prxobs</th>
+              <th scope="col">poids</th>
+              
+              <th scope="col">statutpoids</th>
+              <th scope="col">observation</th>
+              <th scope="col">variation</th>
+              <th scope="col">gps</th>
+              <th scope="col">ville</th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of prix;">
+                
+              <td >{{p["enqcod"]}}</td>
+              <td >{{p["carnum"]}}</td>
+              <td >{{p["sercod"]}}</td>
+              <td >{{p["numrel"]}}</td>
+
+              <td >{{p["sertyp"]}}</td>
+              <td >{{p["produit"]}}</td>
+              <td >{{p["produitLabel"]}}</td>
+              <td >{{p["annee"]}}</td>
+              <td >{{p["codpv"]}}</td>
+              <td >{{p["nompv"]}}</td>
+
+              <td >{{p["enqcod"]}}</td>
+              <td >{{p["sem"]}}</td>
+              <td >{{p["mois"]}}</td>
+              <td >{{p["staprx"]}}</td>
+              <td >{{p["prxobs"]}}</td>
+              <td >{{p["poids"]}}</td>
+              
+              <td >{{p["statutpoids"]}}</td>
+              <td >{{p["observation"]}}</td>
+              <td >{{p["variation"]}}</td>
+              <td >{{p["gps"]}}</td>
+              <td >{{p["ville"]}}</td>
+        
+            </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="this.prix.length === 0" class="text-center mt-5">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+    </div>
+    </div>
+  </div>
