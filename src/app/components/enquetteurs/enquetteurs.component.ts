@@ -15,7 +15,7 @@ export class EnquetteursComponent implements OnInit {
   }
 
   private async loadData() {
-    this.genService.getRessource('/fetchEnquetteurs')
+    this.genService.getRessourceByFullPath('https://baismail.herokuapp.com/rc/fetchEnquetteurs')
         .subscribe(data=>{
           console.log(data);
           this.enquetteurs = data;
