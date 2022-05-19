@@ -7,9 +7,9 @@ import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
-  {path: 'enquetteurs', component: EnquetteursComponent, pathMatch: 'full'},
-  {path: 'output', component: OutputComponent, pathMatch: 'full'},
-  {path: 'home', component: HomeComponent, pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'enquetteurs', component: EnquetteursComponent},
+  {path: 'output', component: OutputComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', redirectTo: 'home', pathMatch: 'full'},
 ]
