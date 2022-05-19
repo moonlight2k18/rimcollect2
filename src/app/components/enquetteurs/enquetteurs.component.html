@@ -29,8 +29,15 @@
     </div>
   </div>
 
-  <div *ngIf="this.enquetteurs.length === 0" class="text-center mt-5">
+
+  <div *ngIf="loading" class="text-center text-success mt-5">
     <div class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
-</div>
+    </div>
+  </div>
+
+  <div class="mt-5 text-center" *ngIf="!loading && enquetteurs.length === 0">
+    <h5>Vide pour l'instant...</h5>
+  </div>
+
 </div>

@@ -3,7 +3,7 @@
       <h3>Liste des enquètes </h3>
     </div>
   
-    <div class="mx-5 mt-5" *ngIf="this.prix.length !== 0">
+    <div class="mt-5" *ngIf="this.prix.length !== 0">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button class="btn btn-outline-success" (click)="onExportData()">
             <span class="px-3">Exporter</span>
@@ -50,10 +50,10 @@
 
               <td >{{p["sertyp"]}}</td>
               <td >{{p["produit"]}}</td>
-              <td >{{p["produitLabel"]}}</td>
+              <td ><small>{{p["produitLabel"]}}</small></td>
               <td >{{p["annee"]}}</td>
               <td >{{p["codpv"]}}</td>
-              <td >{{p["nompv"]}}</td>
+              <td ><small>{{p["nompv"]}}</small></td>
 
               <td >{{p["enqcod"]}}</td>
               <td >{{p["sem"]}}</td>
@@ -63,9 +63,9 @@
               <td >{{p["poids"]}}</td>
               
               <td >{{p["statutpoids"]}}</td>
-              <td >{{p["observation"]}}</td>
+              <td ><small>{{p["observation"]}}</small></td>
               <td >{{p["variation"]}}</td>
-              <td >{{p["gps"]}}</td>
+              <td ><small>{{p["gps"]}}</small></td>
               <td >{{p["ville"]}}</td>
         
             </tr>
@@ -74,9 +74,13 @@
       </div>
     </div>
 
-    <div *ngIf="this.prix.length === 0" class="text-center mt-5">
-        <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+    <div *ngIf="loading" class="text-center text-success mt-5">
+      <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
+
+    <div class="mt-5 text-center" *ngIf="!loading && prix.length === 0">
+      <h5>Vide pour l'instant...</h5>
     </div>
   </div>

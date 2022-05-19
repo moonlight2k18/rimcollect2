@@ -8,6 +8,7 @@ import { GeneralService } from 'src/app/services/general.service';
 })
 export class EnquetteursComponent implements OnInit {
   public enquetteurs = [];
+  public loading: boolean = false;
   constructor(private genService: GeneralService) { }
 
   ngOnInit(): void {
@@ -15,12 +16,15 @@ export class EnquetteursComponent implements OnInit {
   }
 
   private async loadData() {
+    this.loading = true;
     this.genService.getRessourceByFullPath('https://baismail.herokuapp.com/rc/fetchEnquetteurs')
         .subscribe(data=>{
           console.log(data);
           this.enquetteurs = data;
+          this.loading = false;
         }, err=>{
           console.error(err);
+          this.loading = false;
         });
   }
 }

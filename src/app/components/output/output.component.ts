@@ -7,7 +7,7 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./output.component.scss']
 })
 export class OutputComponent implements OnInit {
-
+  public loading : boolean = false;
   public prix = [];
   constructor(private genService: GeneralService) { }
 
@@ -16,12 +16,15 @@ export class OutputComponent implements OnInit {
   }
 
   private async loadData() {
+    this.loading = true;
     this.genService.getRessourceByFullPath('https://rim-collect.herokuapp.com/rc/synched')
         .subscribe(data=>{
           console.log(data);
           this.prix = data;
+          this.loading = false;
         }, err=>{
           console.error(err);
+          this.loading = false;
         });
   }
 
