@@ -40,7 +40,7 @@
           <span><strong>Année</strong></span>
           <div>
             <select class="form-select form-select-sm mb-3" (change)="onChangeAnnee($event)" aria-label=".form-select-lg example">
-              <option value="" selected>...</option>
+              <option value="" selected></option>
               <option *ngFor="let annee of annees | async" [value]="annee">{{annee}}</option>
             </select>
           </div>
@@ -50,7 +50,7 @@
           <span><strong>Mois</strong></span>
           <div>
             <select class="form-select form-select-sm mb-3" (change)="onChangeMois($event)" aria-label=".form-select-lg example">
-              <option value="" selected>...</option>
+              <option value="" selected></option>
               <option *ngFor="let mois of mois | async" [value]="mois">{{mois}}</option>
             </select>
           </div>
