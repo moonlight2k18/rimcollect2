@@ -1,13 +1,86 @@
 <div>
     <div class="my-5 text-center">
-      <h3>Liste des enquètes </h3>
+      <h2>Liste des enquètes </h2>
     </div>
   
-    <div class="mt-5" *ngIf="this.prix.length !== 0">
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-outline-success" (click)="onExportData()">
-            <span class="px-3">Exporter</span>
-        </button>
+    <div class="mt-5" *ngIf="this.prix.length !== 0 || filtered">
+      <div class="row g-7 mx-2">
+       
+        <div class="col-auto" *ngIf="filtered">
+          <span><strong>Centre</strong></span>
+          <div>
+            <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example" (change)="onChangeCentre($event)">
+              <option value="" selected></option>
+              <option *ngFor="let c of centres | async" [value]="c">{{c}}</option>
+            </select>
+          </div>
+        </div>
+       
+        <div class="col-auto ml-2" *ngIf="filtered">
+          <span><strong>Enqcod</strong></span>
+          <div>
+            <select class="form-select form-select-sm mb-3" (change)="onChangeEnqcod($event)"  aria-label=".form-select-lg example">
+              <option value="" selected></option>
+              <option *ngFor="let enqcod of enqcods | async" [value]="enqcod">{{enqcod}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-auto ml-2" *ngIf="filtered">
+          <span><strong>Sem</strong></span>
+          <div>
+            <select class="form-select form-select-sm mb-3" (change)="onChangeSem($event)" aria-label=".form-select-lg example">
+              <option value="" selected></option>
+              <option *ngFor="let s of sems | async" [value]="s"><span class="text-center">{{s}}</span></option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-auto ml-2" *ngIf="filtered">
+          <span><strong>Année</strong></span>
+          <div>
+            <select class="form-select form-select-sm mb-3" (change)="onChangeAnnee($event)" aria-label=".form-select-lg example">
+              <option value="" selected>...</option>
+              <option *ngFor="let annee of annees | async" [value]="annee">{{annee}}</option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="col-auto ml-2" *ngIf="filtered">
+          <span><strong>Mois</strong></span>
+          <div>
+            <select class="form-select form-select-sm mb-3" (change)="onChangeMois($event)" aria-label=".form-select-lg example">
+              <option value="" selected>...</option>
+              <option *ngFor="let mois of mois | async" [value]="mois">{{mois}}</option>
+            </select>
+          </div>
+        </div>
+       
+        <div class="col-auto my-auto" *ngIf="filtered">
+          <button class="btn btn-success ms-5" (click)="onFilterResults()">
+              <span class="mx-1 text-bold"><i class="fa fa-filter me-2"></i><strong>Filtrer</strong></span>
+          </button>
+        </div>
+
+        
+
+        <div class="col-auto ms-auto my-auto me-3">
+         <div class="form-check form-switch">
+            <label class="form-check-label" for="flexSwitchCheckChecked">
+              <span class="me-1">Filtre?</span>
+              <input class="form-check-input" (change)="onCheckedFilter($event)" type="checkbox" id="flexSwitchCheckChecked">
+            </label>
+          </div>
+        </div>
+
+        <div class="col-auto my-auto">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-outline-success me-2" (click)="onExportData()">
+                <span ><i class="fa fa-download me-1"></i> <strong>Exporter</strong></span>
+            </button>
+          </div>
+        </div>
+      
       </div>
 
       <div class="table-responsive">
@@ -83,7 +156,7 @@
       </div>
     </div>
 
-    <div class="mt-5 text-center" *ngIf="!loading && prix.length === 0">
+    <div class="mt-5 text-center" *ngIf="!loading && prix.length === 0 && !filtered">
       <h5>Vide pour l'instant...</h5>
     </div>
   </div>

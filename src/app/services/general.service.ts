@@ -12,7 +12,7 @@ export class GeneralService {
 
 
 
-  public getRessource(url: string): Observable<any>{
+  public getRessource(url: string){
     return this.httpClient.get<any>(this.host+url);
   }
 
