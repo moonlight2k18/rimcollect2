@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  host: 'https://rim-collect.herokuapp.com/rc'
+  host: 'https://baismail.herokuapp.com/rc'
 };

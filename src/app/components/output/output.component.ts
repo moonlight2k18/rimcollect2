@@ -15,8 +15,8 @@ export class OutputComponent implements OnInit {
   public centres = this.genService.getRessource('/centres');
   public enqcods = this.genService.getRessource('/enqcods');
   public sems = this.genService.getRessource('/sems');
-  public mois = this.genService.getRessource('/mois');
-  public annees = this.genService.getRessource('/annees');
+  public mois = this.genService.getRessourceByFullPath('https://rim-collect.herokuapp.com/rc/mois');
+  public annees = this.genService.getRessourceByFullPath('https://rim-collect.herokuapp.com/rc/annees');
   public selectedCentre = "";
   public selectedEnqcod = "";
   public selectedSem = "";
