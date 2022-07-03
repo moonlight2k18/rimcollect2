@@ -12,18 +12,14 @@ export class EnquetteursComponent implements OnInit {
   constructor(private genService: GeneralService) { }
 
   ngOnInit(): void {
-    this.loadData();
+    this.loadData(); 
   }
 
   private async loadData() {
     this.loading = true;
-    this.genService.getRessourceByFullPath('https://baismail.herokuapp.com/rc/fetchEnquetteurs')
-        .subscribe(data=>{
+    this.genService.getRessourceByFullPath('https://baismail.herokuapp.com/rc/fetchEnquetteurs').subscribe(data=>{
           console.log(data);
           this.enquetteurs = data;
-          this.loading = false;
-        }, err=>{
-          console.error(err);
           this.loading = false;
         });
   }
